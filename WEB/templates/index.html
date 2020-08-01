@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Solar</title>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <!-- Bootstrap CSS -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css" integrity="sha384-smnSwzHqW1zKbeuSMsAM/fMQpkk7HY11LuHiwT8snL/W2QBoZtVCT4H5x1CEcJCs" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/solar-style.css') }}">
+    </head>
+
+    <body>
+        <div id="landing">
+            <div class="container-fluid caption">
+                <div class="text-left">
+                <h3>Solar <br>Calculator</h3>
+                <h5>Data Analytics <br>Final Project</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-------------------------------------------------------------------------------- HOME ----------------------------------------------------------------------------------------->
+        <br>
+        <div id="home">
+            <!-- <div class="row text-center panelImg">
+                <img src="{{ url_for('static', filename='img/panel2.jpg') }}" alt="panel2" width="100%" height="100%"> 
+            </div> -->
+
+            <div class="container introText">
+                <div class="row text-center">
+                    <h1 id="headerText">
+                        Thanks for Visiting!
+                    </h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 shadow bg-white rounded">
+                        <p>
+                        <br>
+                        Traditional electricity relies heavily on fossil fuels such as coal and natural gas. Not only are they bad for the environment, but they are also limited resources. This translates into a volatile market, in which energy prices alter throughout the day. This fact is driving market alternatives to offer clients new energy sources, which could help them achieve economic savings over time.
+Photovoltaic (PV) Systems have become widely adopted alternatives to conventional domestic energy consumption in Mexico City in recent years, however, as a drawback these systems are is still expensive, the question here is, how many years will be reach the return of investment 
+
+                        </p>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-6 shadow bg-white rounded" id="mainImg">
+                        <img src="{{ url_for('static', filename='img/comparison.jpg') }}" alt="comparison" width="100%" height="100%"> 
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+<!------------------------------------------------------------------------------- Calculator ----------------------------------------------------------------------------------------->        
+        <br>
+        <div class="container calculator">
+            <h1 class="headerText">
+                Panel Calculator
+            </h1>
+            <div id="calculator">
+                <div class="container-fluid">
+            
+                    <div class="row">
+                        <div class="col-md-5 shadow bg-white rounded" id="userInput">
+                            <h5 id="instructions"><br>Please fill the boxes below.</h5>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1">MXN$</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Annual Payment" aria-label="Annual Consumption" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Annual Consumption (Optional)" aria-label="Annual Consumption" aria-describedby="basic-addon1">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">kWh</span>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Full Address" aria-label="Full Address" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+    
+                        </div>
+                        <div class="col-md-6 shadow bg-white rounded" id="results">
+                            <h5 id="instructions"><br>Results.</h5>
+                            <p>Optimal Number of Panels:</p>
+                            <p></p>
+                            <p>Down Payment:</p>
+                            <p></p>
+                            <p>Time for Breakeven:</p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+<!-------------------------------------------------------------------------------- ANALYSIS ----------------------------------------------------------------------------------------->        
+        <br>
+        <div class="container analysis">
+            <h1 class="headerText">
+                Consumption Analysis
+            </h1>
+            <div class="row shadow bg-white rounded" id="bar">
+                <h5 id="barplot">Bar Plot</h5>
+            </div>
+            <div class="row">
+                <br>
+            </div>
+            <div class="row shadow bg-white rounded" id="line">
+                <h5 id="lineplot">Line Plot</h5>
+            </div>
+            <div class="row">
+                <br>
+            </div>
+            
+        </div> 
+
+<!-------------------------------------------------------------------------------- FOOTEr ----------------------------------------------------------------------------------------->        
+        <div id="about">
+
+            <footer>
+              <div class="row ending justify-content-center">
+                <div class="col-md-5 text-center">
+                  <h3 class='finale'>Come back soon!</h3>
+                  <strong>Creators</strong>
+                  <p class='myname'>Ernesto Lopez Centeno<br>neto@lopezcenteno.com</p>
+                  <p>Nombre<br>Mail</p>
+                  <p>Nombre<br>Mail</p>
+                  <p>Nombre<br>Mail</p>
+                  <p>Nombre<br>Mail</p>
+                  <p>Nombre<br>Mail</p>
+                </div>
+                <hr class="socket">
+                &copy; ELC.
+              </div>
+            </footer>
+      
+          </div>
+
+        <!--Jquery-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="{{ url_for('static', filename='js/solar.js') }}"></script>  
+    </body>
+
+</html>
