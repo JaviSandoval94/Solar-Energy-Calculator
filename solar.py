@@ -14,13 +14,12 @@ CORS(app, support_credentials=True)
 def graphData(solar_daily, solar_sites):
     
     #------------------------------------------- First Visualization ------------------------------------------------
-    # day = pd.DataFrame(solar_daily).to_dict("index")
-    # site = pd.DataFrame(solar_sites).to_dict("index")
     day = pd.DataFrame(solar_daily)
     site = pd.DataFrame(solar_sites)
     
-    day_avg = day.groupby(["id"])["specific_prod(kWh/kWp"].mean()
-    return day_avg
+    combined = pd.merge(day, site, on="id", how="left").to_dict("index")
+    
+    return jsonify(combined)
     
 @app.route("/")
 @cross_origin(supports_credentials=True)
