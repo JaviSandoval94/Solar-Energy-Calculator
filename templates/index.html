@@ -56,8 +56,8 @@ Photovoltaic (PV) Systems have become widely adopted alternatives to conventiona
                     Know the Data
                 </h1>
                 <div class="input-group mb-3">
-                    <select class="id">
-                        <option selected>Choose a plant</option>
+                    <select id="plant_id">
+                        <option selected>-- Choose a plant --</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -74,9 +74,16 @@ Photovoltaic (PV) Systems have become widely adopted alternatives to conventiona
                         <option value="25">25</option>
                         <option value="26">26</option>
                     </select>
+                    <select id="comparison">
+                        <option selected>-- Choose a variable --</option>
+                        <option value="sunHour">Sunlight Exposure</option>
+                        <option value="uvIndex">Ultraviolet Radiation Index</option>
+                        <option value="cloudcover">Cloud Coverage</option>
+                    </select>
                 </div>
                 <div class="row">
                     <div class="col-md-5 shadow bg-white rounded" id="time">
+                        <!-- Time-Series Plot -->
                     </div>
                     <div class="col-md-1">
                     </div>

@@ -60,6 +60,10 @@
     width: 100%;
 }
 
+#comparison {
+    margin-left: 50px;
+}
+
 #bubble {
     width: 100%;
 }
