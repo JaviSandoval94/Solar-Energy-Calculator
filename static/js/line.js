@@ -44,7 +44,7 @@ api.then((data) => {
   plant.on("change", (_) => {
     var id = plant.property("value");
     console.log(id);
-
+    plotGraphs();
     newdata = [];
     data.forEach(function (obj) {
       if (obj.id == id) {
