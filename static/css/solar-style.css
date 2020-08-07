@@ -70,10 +70,11 @@
 
 /*--- Contact ---*/
 footer{
-    background-color: #40474e;
+    /* background-color: #40474e; */
     color: white;
-    padding: 3rem 0 2rem;
-    margin-top: 2rem;
+    padding: 1.5rem 0 1rem;
+    /* margin-top: 2rem; */
+    width: 100%;
 }
 .finale {
     padding-bottom: 1.5rem;
@@ -86,4 +87,11 @@ hr.socket{
     width: 100%;
     border-top: .2rem solid #666b71;
     margin-top: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+.jumbotron {
+    background-color: #40474e;
+    margin-top: 25px;
+    margin-bottom: 0px;
 }

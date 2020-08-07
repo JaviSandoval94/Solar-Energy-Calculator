@@ -20,10 +20,7 @@ function plotGraphs() {
 
     bubblePlot();
 
-// Preguntar si hay forma de hacerle "reset"
-    // compare.property("text", "-- Choose a variable");
-    // compare.property("value", "- Choose a variable");
-    // compare.property("selected", "-- Choose a variable");
+
 }
 
 function bubblePlot(){
@@ -48,6 +45,10 @@ function bubblePlot(){
         else if (eval =="cloudcover"){
             var x_label = "Cloud Coverage [%]";
             var title = "Specific Production vs Cloud Coverage";
+        }
+        else if (eval =="maxtempC"){
+            var x_label = "Maximum Temperature [°C]";
+            var title = "Specific Production vs Maximum Temperature";
         }
 
         Object.entries(info).forEach(([key, value])=>{
