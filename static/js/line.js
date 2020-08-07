@@ -27,6 +27,7 @@ var xAxis = d3
   .scale(x)
   .tickFormat(d3.timeFormat("%Y"))
   .ticks(d3.timeYear);
+
 svg
   .append("g")
   .attr("transform", "translate(0," + height + ")")
@@ -35,7 +36,31 @@ svg
 // Initialize an Y axis
 var y = d3.scaleLinear().range([height, 0]);
 var yAxis = d3.axisLeft().scale(y);
+
 svg.append("g").attr("class", "myYaxis");
+
+var labelsGroup = svg
+  .append("g")
+  .attr("transform", `translate(${width / 2}, ${height + 20})`);
+
+var labelsGroupY = svg
+  .append("g")
+  .attr("transform", `translate(${width - 795}, ${height / 2})`);
+
+labelsGroup
+  .append("text")
+  .attr("x", 0)
+  .attr("y", 20)
+  .classed("active", true)
+  .text("Years");
+
+labelsGroupY
+  .append("text")
+  .attr("transform", "rotate(-90)")
+  .attr("x", 0)
+  .attr("y", -90)
+  .classed("active", true)
+  .text("Specific Production (kWh/kWp)");
 
 api.then((data) => {
   // update(data, 1);
