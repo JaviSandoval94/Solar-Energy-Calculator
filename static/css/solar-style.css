@@ -48,7 +48,7 @@ body {
 }
 
 .headerText,
-h5 {
+.panel-head {
   padding-bottom: 20px;
 }
 #welcomeText {
@@ -58,6 +58,10 @@ h5 {
 .panelImg {
   height: 100%;
   width: 100%;
+}
+
+.d3plot {
+  margin-top: 25px;
 }
 
 #bubble {
