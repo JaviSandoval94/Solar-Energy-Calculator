@@ -152,22 +152,29 @@
               <select id="location">
                 <option selected>-- Choose a region --</option>
                 <option value="North">North</option>
-                <option value="South">South</option>
+                <option value="Downtown & South">Downtown & South</option>
                 <option value="West">West</option>
                 <option value="East">East</option>
-                <option value="Downtown">Downtown</option>
               </select>
+              <button
+                type="button"
+                class="btn btn-success calcButton"
+                id="calcButton"
+              >
+                Continue
+              </button>
+              <!-- <input type="button" value="Continue" id="calcButton" /> -->
             </div>
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-5 shadow bg-white rounded" id="results">
             <h5 id="instructions"><br />Results</h5>
-            <p>Optimal Number of Panels:</p>
-            <p id="#panels"></p>
-            <p>Down Payment:</p>
-            <p id="#dpayment"></p>
-            <p>Time for Breakeven:</p>
-            <p id="breakeven"></p>
+            <p id="panels">Optimal Number of Panels:</p>
+            <!-- <p id="#panels"></p> -->
+            <p id="dpayment">Down Payment:</p>
+            <!-- <p id="#dpayment"></p> -->
+            <p id="breakeven">Time for Breakeven:</p>
+            <!-- <p id="#breakeven"></p> -->
           </div>
         </div>
       </div>
@@ -216,5 +223,6 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="{{ url_for('static', filename='js/solar.js') }}"></script>
     <script src="{{ url_for('static', filename='js/line.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/calc.js') }}"></script>
   </body>
 </html>
