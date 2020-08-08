@@ -1,3 +1,36 @@
+function plotEarnings(downPay, yearlyReturn) {
+  var earnings = [-downPay];
+  var year = [0];
+
+  for (var i = 0; i < 25; i++) {
+    earnings.push(-downPay + yearlyReturn * (i + 1));
+    year.push(i + 1);
+  }
+
+  console.log(earnings);
+  console.log(year);
+
+  lData = [
+    {
+      type: "line",
+      x: year,
+      y: earnings,
+    },
+  ];
+
+  lLayout = {
+    title: "Yearly Return of Investment",
+    xaxis: {
+      title: "Years",
+    },
+    yaxis: {
+      title: "Earnings [MXN$]",
+    },
+  };
+
+  Plotly.newPlot("breaktime", lData, lLayout);
+}
+
 d3.select("#calcButton").on("click", (_) => {
   var payment = d3.select("#pay");
   var consume = d3.select("#consume");
@@ -24,10 +57,6 @@ d3.select("#calcButton").on("click", (_) => {
   var yearlyReturn = watt_paid * con; // Retorno Anual basado en el consumo del usuario
   var breakeven = downPay / yearlyReturn; // Tiempo para recuperar la inversión
 
-  console.log(panelNum);
-  console.log(downPay);
-  console.log(breakeven);
-
   d3.select("#panels").text(
     `Optimal Number of Panels (260 Watt): ${panelNum.toFixed(2)}`
   );
@@ -35,4 +64,6 @@ d3.select("#calcButton").on("click", (_) => {
   d3.select("#breakeven").text(
     `Time for Breakeven: ${breakeven.toFixed(1)} years`
   );
+
+  plotEarnings(downPay, yearlyReturn);
 });
