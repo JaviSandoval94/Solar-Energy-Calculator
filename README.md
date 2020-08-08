@@ -1,7 +1,8 @@
-![solar_panel.png](Images/solar_panels.png)
+![solar_panel.png](Images/solar_panel.png)
 
 # Introduction
 Traditional electricity relies heavily on fossil fuels such as coal and natural gas. Not only are these resources bad for the environment, but they are also limited. Photovoltaic (PV) Systems have become popular alternatives to conventional domestic energy consumption in Mexico City in recent years. However, the process of adopting such systems often implies elevated capital costs and dealing with technical terms which are not familiar to most energy consumers. As a result, their penetration in the market has been rather slow. According to Inegi statistics:  99% of the inhabited homes in Mexico have electricity; of these, just 0.25% use solar energy as an alternative source, either exclusively, or in a bidirectional/hybrid system (solar and public electricity combined). House photovoltaic systems seemingly have a massive opportunity in the market, however, the use of this technology is very expensive. The possibility of decreasing monthly electricity fees will only be feasible and justifiable if the consumption is high enough to recover the initial investment within a reasonable period of time. There are existing tools for determining the savings of using domestic photovoltaic systems; however, they are not available for Mexico. In this project, we will use Machine Learning to model the specific production possibilities for each region in the Mexico City Metropolitan Area to allow the users to evaluate if this investment is appropriate for them.
+<br>
 ![solar_inforgraphic.png](Images/solar_infographic.png)
 
 # Problem outline
@@ -29,24 +30,29 @@ Predictive models relying on machine learning could help consumers decide whethe
     * Coordinates: These indicate the site's location. The angle of incidence of the solar rays depend on the site's latitude. Weather parameters are also dependent on the site's location.
     * Azimuth: A measure of the panels' orientation in a PV system. It is measured as an angle starting from the North coordinate in an Eastern-wise direction. Ideal azimuth parameters for PV systems in the Northern Hemisphere should be close to 180° (true south).
     * Tilt (slope): These are parameters that affect the incidence angle of the sun rays on the solar panel, thus affecting the power production of the PV system.
-![solar_angles.png](Images/solar_angles.png)
+    <br>
+![solar_angles.jpg](Images/solar_angles.jpg)
 
 # Model considerations
 The provided data was pre-treated and filtered under the following considerations:
 ## Datasets
 ### Sites
 Dataframe that contains all the data related to each one of the 16 solar plants. 
+<br>
 ![df1.png](Images/df1.png)
 
 ### Daily data
 This table has all the available historical data from all the sites. The data goes from december 2016 to july 2020. The data is available by day for each one of the sites; it’s important to emphasize that not all the available data from the sites is available for the same period of time.
+<br>
 ![df2.png](Images/df2.png)
 
-Once the data was available in the Heroku database, we proceeded to create a dataframe with the necessary data to create a Machine Learning model. The objective of this model is to predict the specific production based on continuous data related to the specific location of each site. 
+Once the data was available in the Heroku database, we proceeded to create a dataframe with the necessary data to create a Machine Learning model. The objective of this model is to predict the specific production based on continuous data related to the specific location of each site.
+<br>
 ![df3.png](Images/df3.png)
 
 # Model
 We used ‘Random Forest Regression’ from Sklearn to train a model. As part of the development of the solution, we used Grid Search to find the best possible score, testing five different quantities of estimators. Finally, we obtained a model with score of 0.63. As part of our proposal, we created five more datasets in order to test the machine learning model. The dataset was created from five locations in Mexico City; the table contains all the necessary columns for the machine learning model to work and predict the specific production of the location. It should be noted that the machine learning model outputs daily production, the final output is grouped into a whole year to account for yearly production variations.
+<br>
 <br>
 The final predictions were made using an azimuth angle of 180° and a tilt angle of 11°. The predicted production could be different depending on the selection of these parameters.
 <br>
@@ -68,6 +74,7 @@ The final panel estimation uses the user's inputs to estimate the number of pane
 * Location (this is limited to the 5 locations specified in the <em>Model</em> section)
 
 The final calculation takes these three inputs and outputs the optimal number of panels, the downpayment (in MXN) and the time for breakeven (in years). <strong>This model is only meant to give the user an initial idea on whether the system is feasible or not and should not be used as a definitive installation proposal, which should be validated with a professional installer.</strong> These are the calculations performed:
+<br>
 ![calculation_model.png](Images/df3.png)
 
 
