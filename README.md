@@ -75,7 +75,7 @@ The final panel estimation uses the user's inputs to estimate the number of pane
 
 The final calculation takes these three inputs and outputs the optimal number of panels, the downpayment (in MXN) and the time for breakeven (in years). <strong>This model is only meant to give the user an initial idea on whether the system is feasible or not and should not be used as a definitive installation proposal, which should be validated with a professional installer.</strong> These are the calculations performed:
 <br>
-![calculation_model.png](Images/df3.png)
+![calculation_model.png](Images/calculation_model.png)
 
 
 ## Considerations
