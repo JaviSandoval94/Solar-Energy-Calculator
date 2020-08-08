@@ -20,7 +20,6 @@
       href="{{ url_for('static', filename='css/solar-style.css') }}"
     />
   </head>
-
   <body>
     <div id="landing">
       <div class="container-fluid caption">
@@ -30,7 +29,6 @@
         </div>
       </div>
     </div>
-
     <!-------------------------------------------------------------------------------- HOME ----------------------------------------------------------------------------------------->
     <br />
     <div id="home">
@@ -67,7 +65,6 @@
         </div>
       </div>
     </div>
-
     <!------------------------------------------------------------------------------- GRAPHS ----------------------------------------------------------------------------------------->
     <br />
     <div id="introPlots">
@@ -75,43 +72,46 @@
         <h1 id="headerText">
           Know the Data
         </h1>
-        <div class="input-group mb-3">
-          <select id="plant_id">
-            <option selected>-- Choose a plant --</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-          </select>
-          <select id="comparison">
-            <option selected>-- Choose a variable --</option>
-            <option value="sunHour">Sunlight Exposure</option>
-            <option value="uvIndex">Ultraviolet Radiation Index</option>
-            <option value="cloudcover">Cloud Coverage</option>
-            <option value="maxtempC">Maximum Temperature</option>
-          </select>
+        <div class="row">
+          <div class="input-group mb-3">
+            <select id="plant_id">
+              <option selected>-- Choose a plant --</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+            </select>
+          </div>
+          <div class="col-md-12 shadow bg-white rounded" id="lineplot"></div>
         </div>
         <div class="row">
-          <div class="col-md-5 shadow bg-white rounded" id="time">
-            <!-- Time-Series Plot -->
+          <br />
+        </div>
+        <div class="row">
+          <div class="input-group mb-3">
+            <select id="comparison">
+              <option selected>-- Choose a variable --</option>
+              <option value="sunHour">Sunlight Exposure</option>
+              <option value="uvIndex">Ultraviolet Radiation Index</option>
+              <option value="cloudcover">Cloud Coverage</option>
+              <option value="maxtempC">Maximum Temperature</option>
+            </select>
           </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-6 shadow bg-white rounded" id="bubble"></div>
+          <div class="col-md-12 shadow bg-white rounded" id="bubble"></div>
         </div>
       </div>
     </div>
-
     <!------------------------------------------------------------------------------- CALCULATOR ----------------------------------------------------------------------------------------->
     <br />
     <div id="calculator">
@@ -129,6 +129,7 @@
               <input
                 type="text"
                 class="form-control"
+                id="pay"
                 placeholder="Annual Payment"
                 aria-label="Annual Consumption"
                 aria-describedby="basic-addon1"
@@ -138,7 +139,8 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Annual Consumption (Optional)"
+                id="consume"
+                placeholder="Annual Consumption"
                 aria-label="Annual Consumption"
                 aria-describedby="basic-addon1"
               />
@@ -147,29 +149,29 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Full Address"
-                aria-label="Full Address"
-                aria-describedby="basic-addon1"
-              />
+              <select id="location">
+                <option selected>-- Choose a region --</option>
+                <option value="North">North</option>
+                <option value="South">South</option>
+                <option value="West">West</option>
+                <option value="East">East</option>
+                <option value="Downtown">Downtown</option>
+              </select>
             </div>
           </div>
           <div class="col-md-1"></div>
           <div class="col-md-5 shadow bg-white rounded" id="results">
             <h5 id="instructions"><br />Results</h5>
             <p>Optimal Number of Panels:</p>
-            <p></p>
+            <p id="#panels"></p>
             <p>Down Payment:</p>
-            <p></p>
+            <p id="#dpayment"></p>
             <p>Time for Breakeven:</p>
-            <p></p>
+            <p id="breakeven"></p>
           </div>
         </div>
       </div>
     </div>
-
     <!-------------------------------------------------------------------------------- ANALYSIS ----------------------------------------------------------------------------------------->
     <br />
     <div id="analysis">
@@ -184,14 +186,13 @@
           <br />
         </div>
         <div class="row shadow bg-white rounded" id="line">
-          <h5 id="lineplot">Line Plot</h5>
+          <h5 id="breaktime">Line Plot</h5>
         </div>
         <div class="row">
           <br />
         </div>
       </div>
     </div>
-
     <!-------------------------------------------------------------------------------- FOOTER ----------------------------------------------------------------------------------------->
     <div class="jumbotron jumbotron-fluid" id="about">
       <footer>
@@ -208,7 +209,6 @@
         </div>
       </footer>
     </div>
-
     <!--Jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>

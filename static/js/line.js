@@ -2,10 +2,10 @@ url = "/api/line";
 
 var api = d3.json(url);
 
-var svgWidth = 960;
+var svgWidth = 1100;
 var svgHeight = 500;
 
-var margin = { top: 60, right: 60, bottom: 60, left: 60 };
+var margin = { top: 60, right: 60, bottom: 60, left: 100 };
 
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
@@ -58,7 +58,7 @@ labelsGroupY
   .append("text")
   .attr("transform", "rotate(-90)")
   .attr("x", 0)
-  .attr("y", -90)
+  .attr("y", -190)
   .classed("active", true)
   .text("Specific Production (kWh/kWp)");
 
@@ -69,7 +69,7 @@ api.then((data) => {
   plant.on("change", (_) => {
     var id = plant.property("value");
     console.log(id);
-    plotGraphs();
+    bubblePlot();
     newdata = [];
     data.forEach(function (obj) {
       if (obj.id == id) {
