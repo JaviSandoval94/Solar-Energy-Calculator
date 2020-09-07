@@ -21,7 +21,7 @@ Predictive models relying on machine learning could help consumers decide whethe
 
 # Available Data
 * Daily energy production data from 16 domestic-scale photovoltaic systems in the Mexico City Metropolitan Area as reported by the inverter provider of each of the sites.
-* Daily weather data from the Historical or past weather API from World Weather Online. The data was collected using the coordinates’ sites for each of the production dates. (https://www.worldweatheronline.com/developer/api/docs/historical-weather-api.aspx#astronomy_element). The following columns were extracted from the API response:
+* Daily weather data from the Historical or past weather API from World Weather Online. The data was collected using the coordinates’ sites for each of the production dates from the [World Weather Online API](https://www.worldweatheronline.com/developer/api/docs/historical-weather-api.aspx#astronomy_element). The following columns were extracted from the API response:
     * uvIndex: It is an indicator of ultraviolet radiation intensity from the sun on the Earth’s surface. Its values range from 0 to 1.
     * sunHour: Total sun hours in a given day 
     * Cloudcover: Cloud cover amount in percentage (%)
