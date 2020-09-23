@@ -14,7 +14,12 @@ var parseTime = d3.timeParse("%Y");
 
 var svg = d3
   .select("#lineplot")
+  .append("div") // nuevo
+  .classed("svg-container", true) // nuevo
   .append("svg")
+  .attr("preserveAspectRatio", "xMinYMin meet") // nuevo
+  .attr("viewBox", "0 0 600 400") // nuevo
+  .classed("svg-content-responsive", true) // nuevo
   .attr("width", svgWidth)
   .attr("height", svgHeight)
   .append("g")
