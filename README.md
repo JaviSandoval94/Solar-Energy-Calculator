@@ -1,25 +1,26 @@
 ![solar_panel.png](Images/solar_panel.png)
 
-# Introduction
+# Solar Energy Calculator
+## Background
 Traditional electricity relies heavily on fossil fuels such as coal and natural gas. Not only are these resources bad for the environment, but they are also limited. Photovoltaic (PV) Systems have become popular alternatives to conventional domestic energy consumption in Mexico City in recent years. However, the process of adopting such systems often implies elevated capital costs and dealing with technical terms which are not familiar to most energy consumers. As a result, their penetration in the market has been rather slow. According to Inegi statistics:  99% of the inhabited homes in Mexico have electricity; of these, just 0.25% use solar energy as an alternative source, either exclusively, or in a bidirectional/hybrid system (solar and public electricity combined). House photovoltaic systems seemingly have a massive opportunity in the market, however, the use of this technology is very expensive. The possibility of decreasing monthly electricity fees will only be feasible and justifiable if the consumption is high enough to recover the initial investment within a reasonable period of time. There are existing tools for determining the savings of using domestic photovoltaic systems; however, they are not available for Mexico. In this project, we will use Machine Learning to model the specific production possibilities for each region in the Mexico City Metropolitan Area to allow the users to evaluate if this investment is appropriate for them.
 <br>
 The final project is deployed at: https://javi-sandoval94-solar-energy.herokuapp.com/
 <br>
 ![solar_inforgraphic.png](Images/solar_infographic.png)
 
-# Problem outline
+## Problem outline
 * While some tools have been developed to help consumers decide whether or not distributed photovoltaic systems are suitable options for them, such tools are not always available in the Mexican market.
 * Installers often have to prepare technical proposals and run costly simulations to offer clients a project which will not always be bought, resulting in wasted money and time for the companies.
 <br>
 Predictive models relying on machine learning could help consumers decide whether or not they should adopt such systems, while saving installers’ time and effort devoted to generate technical proposals for clients who ultimately choose not to buy them. Users could use such models to get a preliminary idea on whether a PV system is adequate for them to later get a formal quotation with all the technical requirements from a professional installer.
 
-# Objectives
+## Objectives
 * Use historical data from different photovoltaic systems in the Mexico City Metropolitan Area to show the impact that key metrics have on the production of electricity.
 * Create a model using Machine Learning that can show users the feasibility of buying a domestic photovoltaic system based on their annual electricity consumption.
 * Calculate the time in which the user will recover the initial investment that installing a domestic photovoltaic system requires.
 * Provide a tool for companies that sell and install domestic photovoltaic systems that is fast, easy to use and free.
 
-# Available Data
+## Data sets
 * Daily energy production data from 16 domestic-scale photovoltaic systems in the Mexico City Metropolitan Area as reported by the inverter provider of each of the sites.
 * Daily weather data from the Historical or past weather API from World Weather Online. The data was collected using the coordinates’ sites for each of the production dates from the [World Weather Online API](https://www.worldweatheronline.com/developer/api/docs/historical-weather-api.aspx#astronomy_element). The following columns were extracted from the API response:
     * uvIndex: It is an indicator of ultraviolet radiation intensity from the sun on the Earth’s surface. Its values range from 0 to 1.
@@ -35,9 +36,9 @@ Predictive models relying on machine learning could help consumers decide whethe
     <br>
 ![solar_angles.jpg](Images/solar_angles.jpg)
 
-# Model considerations
+## Data model
 The provided data was pre-treated and filtered under the following considerations:
-## Datasets
+
 ### Sites
 Dataframe that contains all the data related to each one of the 16 solar plants. 
 <br>
@@ -51,8 +52,7 @@ This table has all the available historical data from all the sites. The data go
 Once the data was available in the Heroku database, we proceeded to create a dataframe with the necessary data to create a Machine Learning model. The objective of this model is to predict the specific production based on continuous data related to the specific location of each site.
 <br>
 ![df3.png](Images/df3.png)
-
-# Model
+<br>
 We used ‘Random Forest Regression’ from Sklearn to train a model. As part of the development of the solution, we used Grid Search to find the best possible score, testing five different quantities of estimators. Finally, we obtained a model with score of 0.63. As part of our proposal, we created five more datasets in order to test the machine learning model. The dataset was created from five locations in Mexico City; the table contains all the necessary columns for the machine learning model to work and predict the specific production of the location. It should be noted that the machine learning model outputs daily production, the final output is grouped into a whole year to account for yearly production variations.
 <br>
 <br>
@@ -69,7 +69,7 @@ As a result of the whole machine learning process, we obtained a dictionary that
 | West     | 19.399021 | -99.245410 | 1,602                                |
 | Downtown | 19.423630 | -99.131770 | 1,587                                |
 
-# Final calculation
+## Final calculation
 The final panel estimation uses the user's inputs to estimate the number of panels needed to supply their energy consuption and their repayment time. The user inputs are the following:
 * Yearly energy consumption (from the last year)
 * Yearly paid amount (from the last year)
@@ -79,15 +79,14 @@ The final calculation takes these three inputs and outputs the optimal number of
 <br>
 ![calculation_model.png](Images/calculation_model.png)
 
-
-## Considerations
+## General considerations
 * The module price is set to be 2 USD/Wp (installed watts)
 * The exchange rate is set to 22 MXN/USD
 * The production scenario is set to the one obtained in the machine learning model and depends on the selected location
 * A 180° azimuth angle and 11° tilt are considered to do the final production calculation. 
 * This model is only valid for simulations within the Mexico City Metropolitan Area.
 
-# Conclusions and next steps
+## Conclusions and next steps
 This tool provides a useful guide for users trying to determine whether a PV system is feasible for them or not. However, this just gives an initial idea and the technical proposal offered by a professional installer may vary. Please make sure to validate these results with a real proposal before making any decisions.
 * Train the model with production data from other locations to generalize the results
 * Let the user input their address or coordinates and call the data from an API
