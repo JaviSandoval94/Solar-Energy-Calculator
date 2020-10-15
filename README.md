@@ -2,9 +2,9 @@
 ![solar_panel.png](Images/solar_panel.png)
 
 ## Background
-Traditional electricity relies heavily on fossil fuels such as coal and natural gas. Not only are these resources bad for the environment, but they are also limited. Photovoltaic (PV) Systems have become popular alternatives to conventional domestic energy consumption in Mexico City in recent years. However, the process of adopting such systems often implies elevated capital costs and dealing with technical terms which are not familiar to most energy consumers. As a result, their penetration in the market has been rather slow. According to Inegi statistics:  99% of the inhabited homes in Mexico have electricity; of these, just 0.25% use solar energy as an alternative source, either exclusively, or in a bidirectional/hybrid system (solar and public electricity combined). House photovoltaic systems seemingly have a massive opportunity in the market, however, the use of this technology is very expensive. The possibility of decreasing monthly electricity fees will only be feasible and justifiable if the consumption is high enough to recover the initial investment within a reasonable period of time. There are existing tools for determining the savings of using domestic photovoltaic systems; however, they are not available for Mexico. In this project, we will use Machine Learning to model the specific production possibilities for each region in the Mexico City Metropolitan Area to allow the users to evaluate if this investment is appropriate for them.
+Traditional electricity relies heavily on fossil fuels such as coal and natural gas. Not only are these resources bad for the environment, but they are also limited. Photovoltaic (PV) Systems have become popular alternatives to conventional domestic energy consumption in Mexico City in recent years. However, the process of adopting such systems often implies elevated capital costs and dealing with technical terms which are not familiar to most energy consumers. As a result, their penetration in the market has been rather slow. According to INEGI statistics:  99% of the inhabited homes in Mexico have electricity; of these, just 0.25% use solar energy as an alternative source, either exclusively, or in a bidirectional/hybrid system (solar and public electricity combined). House photovoltaic systems seemingly have a massive opportunity in the market; however, the use of this technology is very expensive. The possibility of decreasing monthly electricity fees will only be feasible and justifiable if the consumption is high enough to recover the initial investment within a reasonable period of time. There are existing tools for determining the savings of using domestic photovoltaic systems; however, they are not available for Mexico. In this project, we will use Machine Learning to model the specific production possibilities for each region in the Mexico City Metropolitan Area to allow the users to evaluate if this investment is appropriate for them.
 <br>
-The final project is deployed at: https://javi-sandoval94-solar-energy.herokuapp.com/
+The final project is deployed [here](https://javi-sandoval94-solar-energy.herokuapp.com/).
 <br>
 ![solar_inforgraphic.png](Images/solar_infographic.png)
 
@@ -12,7 +12,7 @@ The final project is deployed at: https://javi-sandoval94-solar-energy.herokuapp
 * While some tools have been developed to help consumers decide whether or not distributed photovoltaic systems are suitable options for them, such tools are not always available in the Mexican market.
 * Installers often have to prepare technical proposals and run costly simulations to offer clients a project which will not always be bought, resulting in wasted money and time for the companies.
 <br>
-Predictive models relying on machine learning could help consumers decide whether or not they should adopt such systems, while saving installers’ time and effort devoted to generate technical proposals for clients who ultimately choose not to buy them. Users could use such models to get a preliminary idea on whether a PV system is adequate for them to later get a formal quotation with all the technical requirements from a professional installer.
+Predictive models relying on Machine Learning could help consumers decide whether or not they should adopt such systems, while saving installers’ time and effort devoted to generate technical proposals for clients who ultimately choose not to buy them. Users could use such models to get a preliminary idea on whether a PV system is adequate for them to later get a formal quotation with all the technical requirements from a professional installer.
 
 ## Objectives
 * Use historical data from different photovoltaic systems in the Mexico City Metropolitan Area to show the impact that key metrics have on the production of electricity.
@@ -26,7 +26,8 @@ Predictive models relying on machine learning could help consumers decide whethe
     * uvIndex: It is an indicator of ultraviolet radiation intensity from the sun on the Earth’s surface. Its values range from 0 to 1.
     * sunHour: Total sun hours in a given day 
     * Cloudcover: Cloud cover amount in percentage (%)
-    * maxTempC: Maximum temperature of the day in degree Celsius minTempC: Minimum temperature of the day in degree Celsius
+    * maxTempC: Maximum temperature of the day in degrees Celsius
+    * minTempC: Minimum temperature of the day in degrees Celsius
     * Precipitation: Precipitation in milimeters
 * Installation data from the selected sites:
     * Installed capacity (kWp): This variable depends on the total installed panels and the power rating of each one of them. It is the maximum power output that a given system could provide at any given time under test conditions. Typically, PV systems will operate at power levels below the installed capacity.
@@ -45,7 +46,7 @@ Dataframe that contains all the data related to each one of the 16 solar plants.
 ![df1.png](Images/df1.png)
 
 ### Daily data
-This table has all the available historical data from all the sites. The data goes from december 2016 to july 2020. The data is available by day for each one of the sites; it’s important to emphasize that not all the available data from the sites is available for the same period of time.
+This table has all the available historical data from all the sites. The data goes from December 2016 to July 2020. The data is available by day for each one of the sites; it’s important to emphasize that not all the available data from the sites is available for the same period of time.
 <br>
 ![df2.png](Images/df2.png)
 
@@ -53,13 +54,13 @@ Once the data was available in the Heroku database, we proceeded to create a dat
 <br>
 ![df3.png](Images/df3.png)
 <br>
-We used ‘Random Forest Regression’ from Sklearn to train a model. As part of the development of the solution, we used Grid Search to find the best possible score, testing five different quantities of estimators. Finally, we obtained a model with score of 0.63. As part of our proposal, we created five more datasets in order to test the machine learning model. The dataset was created from five locations in Mexico City; the table contains all the necessary columns for the machine learning model to work and predict the specific production of the location. It should be noted that the machine learning model outputs daily production, the final output is grouped into a whole year to account for yearly production variations.
+We used ‘Random Forest Regression’ from Sklearn to train a model. As part of the development of the solution, we used Grid Search to find the best possible score, testing five different quantities of estimators. Finally, we obtained a model with score of 0.63. As part of our proposal, we created five more datasets in order to test the Machine Learning model. The dataset was created from five locations in Mexico City; the table contains all the necessary columns for the Machine Learning model to work and predict the specific production of the location. It should be noted that the Machine Learning model outputs daily production, the final output is grouped into a whole year to account for yearly production variations.
 <br>
 <br>
 The final predictions were made using an azimuth angle of 180° and a tilt angle of 11°. The predicted production could be different depending on the selection of these parameters.
 <br>
 
-As a result of the whole machine learning process, we obtained a dictionary that contains the predicted specific production for each zone:
+As a result of the whole Machine Learning process, we obtained a dictionary that contains the predicted specific production for each zone:
 
 | Location | Latitude  | Longitude  | Specific yearly production (kWh/kWp) |
 |----------|-----------|------------|--------------------------------------|
@@ -82,7 +83,7 @@ The final calculation takes these three inputs and outputs the optimal number of
 ## General considerations
 * The module price is set to be 2 USD/Wp (installed watts)
 * The exchange rate is set to 22 MXN/USD
-* The production scenario is set to the one obtained in the machine learning model and depends on the selected location
+* The production scenario is set to the one obtained in the Machine Learning model and depends on the selected location
 * A 180° azimuth angle and 11° tilt are considered to do the final production calculation. 
 * This model is only valid for simulations within the Mexico City Metropolitan Area.
 
@@ -90,6 +91,3 @@ The final calculation takes these three inputs and outputs the optimal number of
 This tool provides a useful guide for users trying to determine whether a PV system is feasible for them or not. However, this just gives an initial idea and the technical proposal offered by a professional installer may vary. Please make sure to validate these results with a real proposal before making any decisions.
 * Train the model with production data from other locations to generalize the results
 * Let the user input their address or coordinates and call the data from an API
-
-
-
